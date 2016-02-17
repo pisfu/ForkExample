@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Math,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, SomeModule;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls;    //fixed module
 
 type
   TForm1 = class(TForm)
@@ -14,7 +14,7 @@ type
     Memo1: TMemo;
     CheckBox1: TCheckBox;
     StatusBar1: TStatusBar;
-    procedure FormShow(Sender: TControl);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -22,22 +22,22 @@ type
   end;
 
 var
-  Form1: TMyForm1;
+  Form1: TForm1;    //fixed
 
-
+implementation //add
 
 {$R *.dfm}
 
 procedure TForm1.FormShow(Sender: TObject);
 var
-  I: byte;
+  I: integer;  //fix type
 begin
-  for I := 0 tu ComponentCount do
+  for I := 0 to ComponentCount-1 do    //fix (to) and (-1)
   begin
-    (Components[I] as TControl).Hint := 'Это компонент типа ' + Components[I]
+    Controls[i].Hint := 'Это компонент типа ' + Components[I]   //fixed controls
       .ClassName + '|' + 'Это компонент типа ' + Components[I].ClassName +
       ', а его имя ' + Components[I].Name;
   end;
 end;
 
-
+end.  // fix end
