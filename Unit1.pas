@@ -5,8 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Math,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, ComCtrls,
-  StdCtrls, Classes, Controls;  // fix module
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls;  // fix module
 
 type
   TForm1 = class(TForm)
@@ -23,7 +22,7 @@ type
   end;
 
 var
-  Form1: TForm1; // wrong class
+  Form1: TMyForm1;
 
 
 
