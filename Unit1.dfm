@@ -12,7 +12,6 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   ShowHint = True
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Edit1: TEdit
