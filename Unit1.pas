@@ -5,8 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Math,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, ComCtrls,
-  StdCtrls, Classes, Controls;  // fix module
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls;  // fix module
 
 type
   TForm1 = class(TForm)
@@ -25,7 +24,7 @@ type
 var
   Form1: TForm1; // wrong class
 
-
+implementation
 
 {$R *.dfm}
 
@@ -33,7 +32,7 @@ procedure TForm1.FormShow(Sender: TObject);
 var
   I: byte;
 begin
-  for I := 0 tu ComponentCount do
+  for I := 0 to ComponentCount do
   begin
     (Components[I] as TControl).Hint := 'Это компонент типа ' + Components[I]
       .ClassName + '|' + 'Это компонент типа ' + Components[I].ClassName +
